@@ -1,3 +1,4 @@
 node_modules
-.DS:Store
+.DS_Store
 turronjs-darwin-arm64
+main.js

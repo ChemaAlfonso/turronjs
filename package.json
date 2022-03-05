@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1",
+    "fix-path": "^4.0.0",
     "vue": "^3.2.31"
   }
 }

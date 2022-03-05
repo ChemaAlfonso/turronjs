@@ -1,6 +1,13 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path');
 
+// Prevents after compile $PATH errors
+const fixPath = import('fix-path');
+fixPath
+.then( ({default: fixPath}) => {
+  fixPath();
+})
+
 
 // ===================================
 // Dev reload
