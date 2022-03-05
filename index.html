@@ -17,40 +17,45 @@
     <div class="bg"></div>
 
 
-    <div class="block">    
-      <h1 class="title">Turron JS</h1>
+    <div class="main">
+
+        <h1 class="title">Turron JS</h1>
+
+        <div class="add">
+          <label for="addInput" class="add__title">Añadir:</label>
+          <div>
+            <input placeholder="Url del recurso" type="text" id="addInput" class="add__input">
+            <button id="addButton" class="add__button"></button>
+          </div>
+        </div>
+
+        <div class="added">
+          <h2 class="subtitle">Recursos a procesar:</h2>
+          <ul class="added__list"></ul>
+        </div>
+
+
+        <div class="do">
+          <button title="Procesar recursos" type="button" class="do__button" id="downloadButton" disabled>
+            <div class="badge badge--empty"></div>
+          </button>
+          <button title="Descargas" type="button" class="view__button" id="viewButton"></button>
+        </div>
+
     </div>
 
-    <div class="block">
-      <div class="add">
-        <label for="addInput" class="add__title">Añadir:</label>
-        <input placeholder="Url del recurso" type="text" id="addInput" class="add__input">
-        <button id="addButton" class="add__button">➕</button>
-      </div>
+
+    <div class="floater">
+    <pre class="console">
+    🐕 Woof Woof -> Bienvenido a <b>TurronJS</b>
+    <br>
+    <span class="code">Añade recursos y haz click en descargar para iniciar el proceso...</span>
+    </pre>
     </div>
 
-    <div class="block">
-      <div class="added">
-        <ul class="added__list"></ul>
-      </div>
-    </div>
+    <div class="version">V 0.1-alpha</div>
 
 
-    <div class="block">
-      <div class="do">
-        <button type="button" class="do__button" id="downloadButton" disabled>Descargar</button>
-        <button type="button" class="view__button" id="viewButton">Ver descargas</button>
-      </div>
-    </div>
-
-    <div class="block">
-      <pre class="console">
-        🐕 Woof Woof -> Bienvenido a TurronJS
-        <br>
-
-        Añade recursos y haz click en descargar para iniciar el proceso...
-      </pre>
-    </div>
 
     <script type="module" src="./frontend/app.js"></script>
   </body>
