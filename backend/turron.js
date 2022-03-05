@@ -8,11 +8,11 @@ class TurronJs {
 
     activeWindow = null
 
-    macosTurronDownloadPath = path.join(__dirname, '/macos/turronsh/downloaded')
+    turronDownloadPath = path.join(__dirname, '/../downloaded')
+
     macosTurronShFileName   = path.join(__dirname, '/macos/turronsh/turron.command')
     macosSourcesFileName    = path.join(__dirname, '/macos/turronsh/sources.txt')
 
-    windowsTurronDownloadPath = path.join(__dirname, '/macos/turronsh/downloaded')
     windowsTurronShFileName = path.join(__dirname, '/macos/turronsh/turron.command')
     windowsSourcesFileName = path.join(__dirname, '/macos/turronsh/sources.txt')
 
@@ -75,9 +75,12 @@ class TurronJs {
             case 'darwin':
                 return this.runTurronMacos()
                 break;
+                
+            case 'win32':
+                return this.runTurronWindows()
+                break;
         
             default:
-                return this.runTurronWindows()
                 break;
         }
     }
@@ -91,15 +94,7 @@ class TurronJs {
     }
 
     openDownloadDir() {
-        switch (this.getPlatform()) {
-            case 'darwin':
-                return shell.openPath(this.macosTurronDownloadPath)
-                break;
-        
-            default:
-                return shell.openPath(this.windowsTurronDownloadPath)
-                break;
-        }
+        return shell.openPath(this.turronDownloadPath)
     }
 
     // ===================================
@@ -114,9 +109,12 @@ class TurronJs {
             case 'darwin':
                 return this.macosSourcesFileName
                 break;
+                
+            case 'win32':
+                return this.windowsSourcesFileName
+                break;
         
             default:
-                return this.windowsSourcesFileName
                 break;
         }
     }
