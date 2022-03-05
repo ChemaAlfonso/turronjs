@@ -56,7 +56,11 @@ app.whenReady()
 
     // Reopen the app if no windows opened on mac
     app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
+        if (BrowserWindow.getAllWindows().length === 0) {
+          const window = createWindow()
+          const { turronJs } = require('./backend/turron')
+          turronJs.enable( window )
+        }
     })
 
 })

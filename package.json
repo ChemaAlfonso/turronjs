@@ -10,7 +10,8 @@
   "author": "TSH",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^17.1.0"
+    "electron": "^17.1.0",
+    "electron-packager": "^15.4.0"
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1",
