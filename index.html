@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="./frontend/styles.css">
+    <title>Turron JS</title>
+  </head>
+  <body>
+    <!-- 
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>. -->
+
+    <div class="bg"></div>
+
+
+    <div class="block">    
+      <h1 class="title">Turron JS</h1>
+    </div>
+
+    <div class="block">
+      <div class="add">
+        <label for="addInput" class="add__title">Añadir:</label>
+        <input placeholder="Url del recurso" type="text" id="addInput" class="add__input">
+        <button id="addButton" class="add__button">➕</button>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="added">
+        <ul class="added__list"></ul>
+      </div>
+    </div>
+
+
+    <div class="block">
+      <div class="do">
+        <button type="button" class="do__button" id="downloadButton" disabled>Descargar</button>
+        <button type="button" class="view__button" id="viewButton">Ver descargas</button>
+      </div>
+    </div>
+
+    <div class="block">
+      <pre class="console">
+        🐕 Woof Woof -> Bienvenido a TurronJS
+        <br>
+
+        Añade recursos y haz click en descargar para iniciar el proceso...
+      </pre>
+    </div>
+
+    <script type="module" src="./frontend/app.js"></script>
+  </body>
+</html>
