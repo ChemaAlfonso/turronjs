@@ -3,6 +3,7 @@ let downloadList = []
 const addInput          = document.querySelector('#addInput')
 const addButton         = document.querySelector('.add__button')
 const downloadButton    = document.querySelector('.do__button')
+const badgeElement      = document.querySelector('.do__button .badge')
 const openDownloadsButton = document.querySelector('.view__button')
 const listElement       = document.querySelector('.added__list')
 const consoleElement    = document.querySelector('.console')
@@ -13,12 +14,14 @@ const consoleElement    = document.querySelector('.console')
 const setDownloadText = () => {
 
     if ( !downloadList.length ) {
-        downloadButton.innerHTML = `Descargar`
+        badgeElement.innerHTML = ''
+        badgeElement.classList.add('badge--empty')
         downloadButton.setAttribute('disabled', 'disabled')
         return
     }
 
-    downloadButton.innerHTML = `Descargar (${downloadList.length})`
+    badgeElement.innerHTML = downloadList.length
+    badgeElement.classList.remove('badge--empty')
     downloadButton.removeAttribute('disabled')
 
 }
