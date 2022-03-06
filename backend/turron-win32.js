@@ -15,17 +15,13 @@ class TurronJsWin32 extends TurronJs {
     // ===================================
     runTurron( audio = false ) {
 
-        runScript(this.activeWindow, 'powershell Set-ExecutionPolicy RemoteSigned ', null);
-
         this.runTurronBySh( audio )
-
-        runScript(this.activeWindow, 'powershell Set-ExecutionPolicy Restricted ', null);
         
     }
 
     runTurronBySh( audio ) {
         const targetCommandPath = audio ? this.win32TurronAudioShFileName : this.win32TurronShFileName
-        runScript(this.activeWindow, 'powershell ' + targetCommandPath, null);
+        runScript(this.activeWindow, 'powershell -ExecutionPolicy ByPass ' + targetCommandPath, null);
     }
 
 
