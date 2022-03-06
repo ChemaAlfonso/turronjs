@@ -1,22 +1,16 @@
-const { runScript } = require('./helpers/exec')
 const path          = require('path')
 const fs            = require('fs')
-const { shell, ipcMain, BrowserWindow } = require('electron')
+const { shell, ipcMain } = require('electron')
 
 
 class TurronJs {
 
     activeWindow = null
 
-    turronDownloadPath = path.join(__dirname, '/../downloaded')
+    turronDownloadPath      = path.join(__dirname, '/../downloaded')
+    turronSourcesFileName   = path.join(__dirname, '/../sources.txt')
 
-    macosTurronShFileName   = path.join(__dirname, '/macos/turronsh/turron.command')
-    macosSourcesFileName    = path.join(__dirname, '/macos/turronsh/sources.txt')
-
-    windowsTurronShFileName = path.join(__dirname, '/macos/turronsh/turron.command')
-    windowsSourcesFileName = path.join(__dirname, '/macos/turronsh/sources.txt')
-
-    enable( window ) {
+    constructor( window ) {
         this.activeWindow = window
 
         this.enableListeners()
@@ -25,7 +19,7 @@ class TurronJs {
     enableListeners() {
 
         ipcMain.on('run-turron', event => {
-            turronJs.runTurron()
+            this.runTurron()
         })
     
         ipcMain.on('set-turron-sources', (event, sources) => {
@@ -47,6 +41,7 @@ class TurronJs {
     // Sources handling
     // ===================================
     getSources() {
+
         fs.readFile(this.getSourcesFileName(), 'utf8', (err,data) => {
             if (err) {
               return console.log(err);
@@ -54,9 +49,11 @@ class TurronJs {
 
             this.activeWindow.webContents.send('get-sources', data);
         })
+
     }
 
     setSources( sourcesList ) {
+
         const sourcesContent =  sourcesList.join('\r\n') + '\r\n'
 
         fs.writeFile(this.getSourcesFileName(), sourcesContent, (err) => {
@@ -65,32 +62,14 @@ class TurronJs {
 
             console.log("The file was saved!");
         }); 
+
     }
 
     // ===================================
     // Turron actions
     // ===================================
     runTurron() {
-        switch (this.getPlatform()) {
-            case 'darwin':
-                return this.runTurronMacos()
-                break;
-                
-            case 'win32':
-                return this.runTurronWindows()
-                break;
-        
-            default:
-                break;
-        }
-    }
-
-    runTurronMacos() {
-        runScript(this.activeWindow, this.macosTurronShFileName, null);
-    }
-
-    runTurronWindows() {
-        runScript(this.activeWindow, this.windowsTurronShFileName, null);
+        throw new Error('Method runTurron not implemented on actual OS')
     }
 
     openDownloadDir() {
@@ -100,29 +79,12 @@ class TurronJs {
     // ===================================
     // Helpers
     // ===================================
-    getPlatform() {
-        return process.platform
-    }
-
     getSourcesFileName() {
-        switch (this.getPlatform()) {
-            case 'darwin':
-                return this.macosSourcesFileName
-                break;
-                
-            case 'win32':
-                return this.windowsSourcesFileName
-                break;
-        
-            default:
-                break;
-        }
+        return this.turronSourcesFileName
     }
 
 
 }
 
-const turronJs = new TurronJs()
 
-
-module.exports = {turronJs}
+module.exports = {TurronJs}

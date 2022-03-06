@@ -49,13 +49,28 @@ const createWindow = () => {
 app.whenReady()
 .then(() => {
 
-    const window = createWindow()
+    const win = createWindow()
     
     // ===================================
     // Turron
     // ===================================
-    const { turronJs } = require('./backend/turron')
-    turronJs.enable( window )
+    let TurronJs = null
+
+    switch (process.platform) {
+      case 'darwin':
+        TurronJs = require('./backend/turron-darwin').TurronJs
+        break;
+
+      case 'win32':
+        TurronJs = require('./backend/turron-darwin').TurronJs
+        break;
+    
+      default:
+        throw new Error('Not supported OS found')
+        break;
+    }
+
+    const turronJs = new TurronJs( win )
 
     // ===================================
     // Lifecicle handle
