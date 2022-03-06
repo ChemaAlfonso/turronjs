@@ -73,7 +73,12 @@ class TurronJs {
     }
 
     openDownloadDir() {
-        return shell.openPath(this.turronDownloadPath)
+
+        if ( !fs.existsSync( this.turronDownloadPath ) )
+            fs.mkdirSync( this.turronDownloadPath, {  recursive: true } )
+
+        return shell.openPath( this.turronDownloadPath )
+
     }
 
     // ===================================
