@@ -62,7 +62,7 @@ app.whenReady()
         break;
 
       case 'win32':
-        TurronJs = require('./backend/turron-darwin').TurronJs
+        TurronJs = require('./backend/turron-win32').TurronJs
         break;
     
       default:
