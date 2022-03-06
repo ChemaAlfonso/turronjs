@@ -157,7 +157,7 @@ body {
  }
 
     .do__button--general {
-        background-image: url('./assets/dl.svg');
+        background-image: url('./assets/mp4.svg');
     }
 
     .do__button--audio {
@@ -203,6 +203,22 @@ body {
         .do__button .badge.badge--empty {
             opacity: 0;   
         }
+
+    .download__icon {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-position: center;
+        background-size: 80%;
+        background-image: url('./assets/dl.svg');
+        border: 1px solid #c4c4c4;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        border-radius: 4px;
+        pointer-events: none;
+    }
 
 
 
