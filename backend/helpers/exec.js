@@ -36,7 +36,7 @@ function runScript(mainWindow, command, args, callback) {
         console.log(data);     
         mainWindow.webContents.send('terminal-output', data);
 
-        if ( data.includes( 'Woof Woof ->' ) ) {
+        if ( data.includes( 'Woof Woof -> All Done' ) ) {
             dialog.showMessageBox({
                 title: 'Completado!',
                 type: 'info',
