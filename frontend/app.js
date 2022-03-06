@@ -2,8 +2,9 @@ let downloadList = []
 
 const addInput          = document.querySelector('#addInput')
 const addButton         = document.querySelector('.add__button')
-const downloadButton    = document.querySelector('.do__button')
-const badgeElement      = document.querySelector('.do__button .badge')
+const downloadButton    = document.querySelector('.do__button--general')
+const downloadAudioButton = document.querySelector('.do__button--audio')
+const badgeElements     = [...document.querySelectorAll('.do__button .badge')]
 const openDownloadsButton = document.querySelector('.view__button')
 const listElement       = document.querySelector('.added__list')
 const consoleElement    = document.querySelector('.console')
@@ -14,15 +15,24 @@ const consoleElement    = document.querySelector('.console')
 const setDownloadText = () => {
 
     if ( !downloadList.length ) {
-        badgeElement.innerHTML = ''
-        badgeElement.classList.add('badge--empty')
+
+        badgeElements.forEach( badge => {
+            badge.innerHTML = ''
+            badge.classList.add('badge--empty')
+        })
+
         downloadButton.setAttribute('disabled', 'disabled')
+        downloadAudioButton.setAttribute('disabled', 'disabled')
         return
     }
 
-    badgeElement.innerHTML = downloadList.length
-    badgeElement.classList.remove('badge--empty')
+    badgeElements.forEach( badge => {
+        badge.innerHTML = downloadList.length
+        badge.classList.remove('badge--empty')
+    })
+
     downloadButton.removeAttribute('disabled')
+    downloadAudioButton.removeAttribute('disabled')
 
 }
 
@@ -110,9 +120,15 @@ const removeFromList = ( removingUrl ) =>  {
 // ===================================
 // Download
 // ===================================
-const download = () => {
-    window.electronAPI.runTurron(downloadList)
+const download = ( audio = false ) => {
+
+    if ( audio )
+        window.electronAPI.runTurronAudio(downloadList)
+    else
+        window.electronAPI.runTurron(downloadList)
+        
 }
+
 
 const openDownloads = () => {
     window.electronAPI.openDownloads()
@@ -144,6 +160,10 @@ const handleEvent = e => {
     
     if ( target.id === 'downloadButton' ) {
         download()
+    }
+    
+    if ( target.id === 'downloadAudioButton' ) {
+        download( true )
     }
 
 }

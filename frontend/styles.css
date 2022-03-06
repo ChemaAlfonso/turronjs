@@ -156,8 +156,12 @@ body {
      position: relative;
  }
 
-    .do__button {
+    .do__button--general {
         background-image: url('./assets/dl.svg');
+    }
+
+    .do__button--audio {
+        background-image: url('./assets/mp3.svg');
     }
 
     .do__button:disabled {
