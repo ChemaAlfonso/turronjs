@@ -47,21 +47,21 @@ if ( !$chocolateyPath ) {
 
 } else {
     echo "🧺 Updating chocolatey"
-    choco upgrade chocolatey
+    choco upgrade -y chocolatey
     echo "🐾 Done"
 }
 
 $ytdlpPath = (Get-Command yt-dlp).Path 
 if ( !$ytdlpPath ) {
     echo "🧺 Installing yt-dlp"
-    choco install yt-dlp
+    choco install -y yt-dlp
     echo "🐾 Done"
 }
 
 $ffmpegPath = (Get-Command ffmpeg).Path 
 if ( !$ffmpegPath ) {
     echo "🧺 Installing ffmpeg"
-    choco install ffmpeg
+    choco install -y ffmpeg
     echo "🐾 Done"
 }
 
@@ -74,7 +74,6 @@ echo "🐾 All dependencies checked"
 # Dir validations
 # --------------------------
 
-    echo "$output"
 if (Test-Path -Path $output) {
     echo "Directory $output exists:"
     echo "Skipping directory creation..."
