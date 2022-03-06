@@ -14,7 +14,7 @@ NC='\033[0m'
 # --------------------------
 actual_dir="$(dirname "$BASH_SOURCE")"
 output="$actual_dir"/../../../downloaded/"$(date +%s)"
-sources="$actual_dir"/sources.txt
+sources="$actual_dir"/../../../sources.txt
 
 # --------------------------
 # Intro
