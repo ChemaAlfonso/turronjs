@@ -35,6 +35,14 @@ function runScript(mainWindow, command, args, callback) {
         data=data.toString();   
         console.log(data);     
         mainWindow.webContents.send('terminal-output', data);
+
+        if ( data.includes( 'Woof Woof ->' ) ) {
+            dialog.showMessageBox({
+                title: 'Completado!',
+                type: 'info',
+                message: 'Todos los recursos han sido procesados.\r\n'
+            });
+        }
     });
 
     child.stderr.setEncoding('utf8');
@@ -47,15 +55,10 @@ function runScript(mainWindow, command, args, callback) {
 
     child.on('close', (code) => {
         //Here you can get the exit code of the script  
-        switch (code) {
-            case 0:
-                dialog.showMessageBox({
-                    title: 'Title',
-                    type: 'info',
-                    message: 'Todos los recursos han sido procesados.\r\n'
-                });
-                break;
-        }
+        // switch (code) {
+        //     case 0:
+        //         break;
+        // }
 
     });
     if (typeof callback === 'function')
