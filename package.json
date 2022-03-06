@@ -8,7 +8,7 @@
     "start": "electron .",
     "pack:osx": "electron-packager . TurronJS --overwrite --out=dist/osx --platform=darwin --arch=x64 --icon=frontend/assets/doge.icns",
     "pack:win32": "electron-packager . TurronJS --overwrite --out=dist/win --platform=win32 --arch=ia32 --icon=frontend/assets/icon.ico",
-    "pack:win64": "electron-packager . TurronJS --overwrite --out=dist/win --platform=win32 --arch=x64 --version=0.36.2 app-version=1.0 --icon=frontend/assets/doge.png",
+    "pack:win64": "electron-packager . TurronJS --overwrite --out=dist/win --platform=win32 --arch=x64 --icon=frontend/assets/icon.ico",
     "build": "npm run pack:osx && npm run pack:win32 && npm run pack:win64"
   },
   "author": "TSH",
