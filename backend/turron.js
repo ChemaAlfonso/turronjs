@@ -22,6 +22,10 @@ class TurronJs {
             this.runTurron()
         })
     
+        ipcMain.on('run-turron-audio', event => {
+            this.runTurron( true )
+        })
+    
         ipcMain.on('set-turron-sources', (event, sources) => {
             this.setSources(sources)
         })
@@ -68,7 +72,7 @@ class TurronJs {
     // ===================================
     // Turron actions
     // ===================================
-    runTurron() {
+    runTurron( audio = false ) {
         throw new Error('Method runTurron not implemented on actual OS')
     }
 

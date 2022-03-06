@@ -2,6 +2,7 @@ const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld('electronAPI', {
   runTurron: (message) => ipcRenderer.send('run-turron', message),
+  runTurronAudio: (message) => ipcRenderer.send('run-turron-audio', message),
   setSources: (sources) => ipcRenderer.send('set-turron-sources', sources),
   getSources: () => ipcRenderer.send('get-turron-sources'),
   openDownloads: (sources) => ipcRenderer.send('open-turron-downloads', sources),

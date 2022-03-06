@@ -4,7 +4,8 @@ const { TurronJs }  = require('./turron')
 
 class TurronJsDarwin extends TurronJs {
 
-    macosTurronShFileName   = path.join(__dirname, '/macos/turronsh/turron.command')
+    macosTurronShFileName      = path.join(__dirname, '/macos/turronsh/turron.command')
+    macosTurronShAudioFileName = path.join(__dirname, '/macos/turronsh/turron-audio.command')
 
     constructor( window ) {
         super( window )
@@ -13,8 +14,9 @@ class TurronJsDarwin extends TurronJs {
     // ===================================
     // Turron actions
     // ===================================
-    runTurron() {
-        runScript(this.activeWindow, this.macosTurronShFileName, null);
+    runTurron( audio = false ) {
+        const targetCommandPath = audio ? this.macosTurronShAudioFileName : this.macosTurronShFileName
+        runScript(this.activeWindow, targetCommandPath, null);
     }
 
 
