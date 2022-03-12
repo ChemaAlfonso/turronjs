@@ -1,22 +1,22 @@
-#TurronJS 🐕 
+# TurronJS 🐕 
 
-####What is TurronJS?
+### What is TurronJS?
 
 
 TurronJs is a simple user interface [electronJS](https://github.com/electron/electron)  based to handle [yt-dlp](https://github.com/yt-dlp/yt-dlp) execution combined with [ffmpeg](https://github.com/FFmpeg/FFmpeg) actions. It was created as a personal tool with no other purposes & you can use it completely free.
 
 ![TurronJS GUI screenshot](./screenshot.png)
 
-####What can do?
+### What can do?
 
 It can handle resources like you usually do with yt-dlp using a user interface with 2 options available (audio only or video).
 
-####Compatibility
+### Compatibility
 
 Can compile working builds for macOS & win32 platforms with simple scripts you found on package.json. 
 
 
-####How it works?
+### How it works?
 
 TurronJS comes from previous versions directly written for bash & powershell (TurronSH).
 
@@ -40,12 +40,12 @@ Each one of the original scripts performs similar actions based on SO.
 3. Exec the original yt-dlp on each previously added sources
 
 
-####Developer usage
+### Developer usage
     1. npm i
     2. npm run pack:osx ( or pack:win32 on win32 based systems )
     3. You have your working build in /dist
 
-####Limitations
+### Limitations
 
 Actually always downloads the max quality found on resource by default and there is no gui option to chage this (you can tweak the original scripts in project & edit all related details, but default config is the one that was previously needed for personal requeriments in most of use cases).
 
