@@ -13,7 +13,10 @@ It can handle resources like you usually do with yt-dlp using a user interface w
 
 ### Compatibility
 
+⚠️ -  **Must be opened as administrator in win32 platforms to been able to download all dependencies** - ⚠️
+
 Can compile working builds for macOS & win32 platforms with simple scripts you found on package.json. 
+
 
 
 ### How it works?
@@ -27,23 +30,33 @@ Each one of the original scripts performs similar actions based on SO.
 1. Check required dependencies & download if not present
 
     1.1. **Win32 systems**
-        -  Install [chocolatey](https://github.com/chocolatey/choco)
-        -  Install [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-        -  Install [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+        - Install [chocolatey](https://github.com/chocolatey/choco)
+        - Install [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+        - Install [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 
     1.2. **MacOS systems**
-        -  Install [brew](https://github.com/Homebrew/brew)
-        -  Install [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-        -  Install [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+        - Install [brew](https://github.com/Homebrew/brew)
+        - Install [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+        - Install [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 
 2. Check the output dir & creates if not exists
 3. Exec the original yt-dlp on each previously added sources
 
 
 ### Developer usage
-    1. npm i
-    2. npm run pack:osx ( or pack:win32 on win32 based systems )
-    3. You have your working build in /dist
+##### Develope
+    1. git clone https://github.com/ChemaAlfonso/turronjs.git
+    2. cd turronjs
+    3. npm i
+    4. npm start
+    * You can enable livereload uncommenting in main.js
+
+##### Compile
+    1. git clone https://github.com/ChemaAlfonso/turronjs.git
+    2. cd turronjs
+    3. npm i
+    4. npm run pack:osx ( or pack:win32 on win32 based systems )
+    5. Your working build is now in /dist
 
 ### Limitations
 
